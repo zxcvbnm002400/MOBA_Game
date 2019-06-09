@@ -8,8 +8,9 @@ USING_NS_CC;
 
 class HeroLayer : public UnitLayer {
 private:
-	int team;
 	//属性
+	float level;
+	float experience;
 	float maxManaValue;			//最大法力值
 	float curManaValue;			//当前法力值
 	float criticalChance;		//暴击几率
@@ -24,8 +25,10 @@ private:
 	float tenacity;				//韧性
 
 public:
-	void onKeyPressed(EventKeyboard::KeyCode keycode, cocos2d::Event *event);
-	void onKeyReleased(EventKeyboard::KeyCode keycode, cocos2d::Event *event);
+	bool Qskill();
+	bool Wskill();
+	bool Eskill();
+	bool Rskill();
 
 };
 

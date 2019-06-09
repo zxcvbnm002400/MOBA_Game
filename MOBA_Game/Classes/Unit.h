@@ -5,6 +5,11 @@
 
 USING_NS_CC;
 
+struct ActionState {
+	UnitLayer* aim;
+	char c;
+};
+
 class UnitLayer : public Layer {
 public:
 	static Layer* createLayer();
@@ -13,7 +18,8 @@ public:
 
 	Sprite* unit;
 
-private:
+public:
+	bool revival;
 	int team;
 	//属性
 	float maxLifeValue;			//最大生命值
@@ -26,9 +32,19 @@ private:
 	float armor;				//物理防御
 	float magicResistance;		//法术防御
 
+	bool isStunned;
+
+public:
+	bool isMelee;				//是否为近战
+	float collisionSize;		//碰撞体积
+
 public:
 	void move(Vec2 destination);
 	void attack(UnitLayer* aim);
+	void setAction(UnitLayer* aim, char c);
+
+public:
+	ActionState actionState;
 
 };
 
