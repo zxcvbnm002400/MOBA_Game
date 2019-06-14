@@ -21,8 +21,9 @@ public:
 	//³õÊ¼»¯×Óµ¯
 	void initBullet(std::string name);
 
-	void bulletMove();
+	bool bulletMove();
 
+	UnitLayer* attacker;
 	UnitLayer* aim;
 	float bulletSpeed;
 

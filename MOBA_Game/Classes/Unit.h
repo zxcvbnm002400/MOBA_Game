@@ -18,8 +18,9 @@ public:
 
 	Sprite* unit;
 
+	std::string unitType;
+
 public:
-	bool revival;
 	int team;
 	//属性
 	float maxLifeValue;			//最大生命值
@@ -27,21 +28,26 @@ public:
 	float moveSpeed;			//移动速度
 	float attackDamage;			//物理攻击
 	float attackPower;			//法术攻击
-	float attackSpeed;			//攻击速度
+	float attackInterval;		//攻击速度
 	float attackRange;			//攻击范围
 	float armor;				//物理防御
 	float magicResistance;		//法术防御
 
-	bool isStunned;
+	float silence;
+	float stun;
+	std::pair<float, float> slowDown;
 
 public:
 	bool isMelee;				//是否为近战
 	float collisionSize;		//碰撞体积
 
+	float attackColdDown;
+
 public:
 	void move(Vec2 destination);
-	void attack(UnitLayer* aim);
+	virtual void attack(UnitLayer* aim);
 	void setAction(UnitLayer* aim, char c);
+	void getInjured(float damage, char type);
 
 public:
 	ActionState actionState;

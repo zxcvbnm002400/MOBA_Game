@@ -16,13 +16,19 @@ public:
 
 	virtual void update(float delta);
 	int _count;//ÓÎÏ·Ö¡¼ÆÊýÆ÷
+	int hour;
+	int minute;
+	int second;
+	int centisecond;
 
 	TMXTiledMap* tileMap;
 
-	HeroLayer* mainPlayer;
+	HeroLayer* & mainPlayer;
 
+	Vector<HeroLayer *> vector_hero;
 	Vector<UnitLayer *> & vector_unit = Manager::getInstance()->getUnitVector();
 	Vector<Bullet *> & vector_bullet = Manager::getInstance()->getBulletVector();
+
 
 	void onMouseDown(Event *event);
 	void onKeyPressed(EventKeyboard::KeyCode keycode, Event *event);

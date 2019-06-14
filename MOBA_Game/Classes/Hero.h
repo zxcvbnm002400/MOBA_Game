@@ -6,8 +6,19 @@
 
 USING_NS_CC;
 
+enum SkillType {instant, aim, direction, state, passive, ban};
+
+struct skillInfo{
+	SkillType skillType;
+	float coldDown;
+	float timer;
+	float duration;
+	float range;
+};
+
 class HeroLayer : public UnitLayer {
-private:
+
+public:
 	//属性
 	float level;
 	float experience;
@@ -24,11 +35,21 @@ private:
 	float spellVamp;			//法术吸血
 	float tenacity;				//韧性
 
+
 public:
-	bool Qskill();
-	bool Wskill();
-	bool Eskill();
-	bool Rskill();
+	virtual void Qskill();
+	virtual void Wskill();
+	virtual void Eskill();
+	virtual void Rskill();
+	virtual void deQskill();
+	virtual void deWskill();
+	virtual void deEskill();
+	virtual void deRskill();
+
+	skillInfo Qinfo;
+	skillInfo Winfo;
+	skillInfo Einfo;
+	skillInfo Rinfo;
 
 };
 
