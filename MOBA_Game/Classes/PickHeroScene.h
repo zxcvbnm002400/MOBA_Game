@@ -1,19 +1,45 @@
-#ifndef __PICKHERO_SCENE_H__
-#define __PICKHERO_SCENE_H__
+#ifndef Pick_Hero
+#define Pick_Hero
+#include"cocos2d.h"
+#include"GameMenuScene.h"
+#include"PreLoading.h"
+#include"HeroBase.h"
+#include"GameInfo.h"
 
-#include "cocos2d.h"
-
-USING_NS_CC;
-
-class PickHero : public Scene {
+class PickHero : public cocos2d::Layer
+{
 public:
-	static Scene* createScene();
+
+	static cocos2d::Scene* createScene();
+
 	virtual bool init();
+
+	void gavi() {
+		_Gavi->setVisible(true);
+		_Snow->setVisible(false);
+		_Ghost->setVisible(false);
+	}
+
+	void snow() {
+		_Gavi->setVisible(false);
+		_Snow->setVisible(true);
+		_Ghost->setVisible(false);
+	}
+
+
+	void spirit() {
+		_Gavi->setVisible(false);
+		_Snow->setVisible(false);
+		_Ghost->setVisible(true);
+	}
 	CREATE_FUNC(PickHero);
-
-	void confirmCallback(Ref* pSender);
-	void exitCallback(Ref* pSender);
-
+private:
+	HeroBase *_Gavi;
+	HeroBase *_Snow;
+	HeroBase *_Ghost;
+	
 };
 
-#endif //__PICKHERO_SCENE_H__
+
+#endif // !Pick_Hero
+#pragma once
